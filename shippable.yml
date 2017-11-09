@@ -17,6 +17,7 @@ build:
 
   ci:
     - npm install
+    - thyu
 
   post_ci:
     - ls -a
