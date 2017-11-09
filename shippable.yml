@@ -26,4 +26,16 @@ build:
 
   cache_dir_list: 
     - $SHIPPABLE_BUILD_DIR/node_modules
+    
+integrations:    
+  notifications:
+    
+    - integrationName: testwebhook   #issue will get created in github some project
+      type: webhook
+      payload:
+        - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
+        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL 
+      on_start: always
+      on_success: always
+      on_failure: always
 
