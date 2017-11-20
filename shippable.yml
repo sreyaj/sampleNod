@@ -7,8 +7,8 @@ node_js:
 
 build:
   pre_ci_boot:
-    image_name: drydock/u14nod
-    image_tag: prod
+    image_name: drydock/u14nodall
+    image_tag: master
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
@@ -28,15 +28,15 @@ build:
   cache_dir_list: 
     - $SHIPPABLE_BUILD_DIR/node_modules
     
-integrations:    
-  notifications:
+#integrations:    
+#  notifications:
     
-    - integrationName: testwebhook   #issue will get created in github some project
-      type: webhook
-      payload:
-        - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
-        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL 
-    #  on_start: always
-      on_success: always
-      on_failure: always
+#    - integrationName: testwebhook   #issue will get created in github some project
+#      type: webhook
+#      payload:
+#        - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
+#        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL 
+   #  on_start: always
+#      on_success: always
+  #    on_failure: always
 
